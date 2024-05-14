@@ -34,6 +34,55 @@ class Program
         {
             Console.WriteLine("Entrada inválida. Por favor, ingrese un número entero válido.");
         }
+
+        // Ejercicio 2
+Console.WriteLine("Seleccione qué operación desea realizar:\n1-Suma\n2-Resta\n3-Multiplicar\n4-Dividir");
+string inputOperacion = Console.ReadLine();
+
+Console.WriteLine("Ingrese el primer número");
+string inputNum1 = Console.ReadLine();
+Console.WriteLine("Ingrese el segundo número");
+string inputNum2 = Console.ReadLine();
+
+int num1, num2, operacion;
+bool operacionValida = int.TryParse(inputOperacion, out operacion);
+bool num1Valido = int.TryParse(inputNum1, out num1);
+bool num2Valido = int.TryParse(inputNum2, out num2);
+
+if (operacionValida && num1Valido && num2Valido)
+{
+    int resultado = 0;
+
+    switch (operacion)
+    {
+        case 1:
+            resultado = num1 + num2;
+            break;
+        case 2:
+            resultado = num1 - num2;
+            break;
+        case 3:
+            resultado = num1 * num2;
+            break;
+        case 4:
+            if (num2 != 0)
+                resultado = num1 / num2;
+            else
+                Console.WriteLine("No se puede dividir por cero.");
+            break;
+        default:
+            Console.WriteLine("Seleccione una operación válida");
+            break;
+    }
+
+    Console.WriteLine("Resultado = " + resultado);
+}
+else
+{
+    Console.WriteLine("Entrada inválida. Por favor, ingrese números enteros válidos para la operación y los números.");
+}
+
+
     }
 
     // Metodo para invertir un número
